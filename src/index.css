@@ -1,0 +1,182 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@layer base {
+  :root {
+    --background: 248 246 240;
+    --foreground: 10 10 10;
+
+    --card: 255 255 255;
+    --card-foreground: 10 10 10;
+
+    --popover: 255 255 255;
+    --popover-foreground: 10 10 10;
+
+    --primary: 10 10 10;
+    --primary-foreground: 248 246 240;
+
+    --secondary: 45 45 45;
+    --secondary-foreground: 248 246 240;
+
+    --muted: 240 240 240;
+    --muted-foreground: 115 115 115;
+
+    --accent: 212 175 55;
+    --accent-foreground: 10 10 10;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 220 220;
+    --input: 220 220 220;
+    --ring: 212 175 55;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 248 246 240;
+    --sidebar-foreground: 10 10 10;
+    --sidebar-primary: 10 10 10;
+    --sidebar-primary-foreground: 248 246 240;
+    --sidebar-accent: 240 240 240;
+    --sidebar-accent-foreground: 10 10 10;
+    --sidebar-border: 220 220 220;
+    --sidebar-ring: 212 175 55;
+  }
+
+  .dark {
+    --background: 10 10 10;
+    --foreground: 248 246 240;
+
+    --card: 20 20 20;
+    --card-foreground: 248 246 240;
+
+    --popover: 20 20 20;
+    --popover-foreground: 248 246 240;
+
+    --primary: 248 246 240;
+    --primary-foreground: 10 10 10;
+
+    --secondary: 45 45 45;
+    --secondary-foreground: 248 246 240;
+
+    --muted: 30 30 30;
+    --muted-foreground: 140 140 140;
+
+    --accent: 212 175 55;
+    --accent-foreground: 10 10 10;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 45 45 45;
+    --input: 45 45 45;
+    --ring: 212 175 55;
+
+    --sidebar-background: 10 10 10;
+    --sidebar-foreground: 248 246 240;
+    --sidebar-primary: 248 246 240;
+    --sidebar-primary-foreground: 10 10 10;
+    --sidebar-accent: 30 30 30;
+    --sidebar-accent-foreground: 248 246 240;
+    --sidebar-border: 45 45 45;
+    --sidebar-ring: 212 175 55;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ct-gold rounded-full opacity-50;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply opacity-75;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-ct-gold text-ct-black;
+  }
+}
+
+@layer components {
+  .luxury-card {
+    @apply bg-card border border-border/20 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:border-ct-gold/30;
+  }
+
+  .shimmer-text {
+    @apply bg-gradient-to-r from-transparent via-ct-gold to-transparent bg-shimmer-gold bg-[length:200%_100%] animate-shimmer bg-clip-text text-transparent;
+  }
+
+  .fabric-overlay {
+    @apply bg-fabric-texture opacity-5 absolute inset-0 pointer-events-none;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/10 border border-white/20;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Parallax effect */
+.parallax {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Typography enhancements */
+.font-luxury {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.font-luxury-bold {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
